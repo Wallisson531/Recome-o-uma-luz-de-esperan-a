@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomeço — Apoio à Recuperação e Orientação Familiar</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            800: '#0c4a6e',
+                        },
+                        hope: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#16a34a',
+                            600: '#15803d',
+                            700: '#1565c0',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom High Contrast Styles */
+        .high-contrast {
+            filter: contrast(125%);
+            background-color: #000000 !important;
+            color: #ffff00 !important;
+        }
+        .high-contrast header, 
+        .high-contrast footer, 
+        .high-contrast section,
+        .high-contrast div,
+        .high-contrast card {
+            background-color: #121212 !important;
+            color: #ffffff !important;
+            border-color: #ffff00 !important;
+        }
+        .high-contrast button, 
+        .high-contrast a {
+            color: #ffff00 !important;
+            border-color: #ffff00 !important;
+        }
+        
+        /* Smooth transitions */
+        * {
+            transition: font-size 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+    <!-- Barra de Acessibilidade no Topo -->
+    <div id="accessibility-bar" class="bg-slate-900 text-white text-xs sm:text-sm py-2 px-4 sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center space-x-2">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-600 text-white animate-pulse">
+                    <i class="fas fa-[#e03131] fa-heart-pulse mr-1"></i> Ajuda Urgente
+                </span>
+                <button onclick="toggleModal('emergency-modal')" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md font-medium text-xs flex items-center gap-1 shadow transition">
+                    <i class="fas fa-phone-alt"></i> Botão de Emergência 24h
+                </button>
+            </div>
+            
+            <div class="flex items-center space-x-3">
+                <!-- Font Resize Buttons -->
+                <div class="flex items-center bg-slate-800 rounded-md p-0.5 border border-slate-700">
+                    <button onclick="changeFontSize(-1)" title="Diminuir Fonte" class="px-2 py-0.5 hover:bg-slate-700 rounded text-xs font-bold">A-</button>
+                    <button onclick="resetFontSize()" title="Tamanho Normal" class="px-2 py-0.5 hover:bg-slate-700 rounded text-xs font-bold">A</button>
+                    <button onclick="changeFontSize(1)" title="Aumentar Fonte" class="px-2 py-0.5 hover:bg-slate-700 rounded text-xs font-bold">A+</button>
+                </div>
+                <!-- High Contrast Toggle -->
+                <button onclick="toggleHighContrast()" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 px-2.5 py-1 rounded-md text-xs font-medium flex items-center gap-1">
+                    <i class="fas fa-adjust"></i> <span class="hidden sm:inline">Alto Contraste</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cabeçalho e Navegação -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-10 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-brand-500 flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform">
+                        <i class="fas fa-seedling text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold text-brand-700 tracking-tight">Recomeço</span>
+                        <span class="block text-xs font-medium text-slate-500">Apoio & Recuperação</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-600">
+                    <a href="#hero" class="hover:text-brand-600 transition">Início</a>
+                    <a href="#diretorio" class="hover:text-brand-600 transition">Locais de Apoio</a>
+                    <a href="#autoavaliacao" class="hover:text-brand-600 transition">Autoavaliação</a>
+                    <a href="#familias" class="hover:text-brand-600 transition">Para Famílias</a>
+                    <a href="#grupos" class="hover:text-brand-600 transition">Grupos</a>
+                    <a href="#historias" class="hover:text-brand-600 transition">Histórias</a>
+                    <a href="#faq" class="hover:text-brand-600 transition">Dúvidas</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center lg:hidden">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-md text-slate-600 hover:bg-slate-100 focus:outline-none">
+                        <i class="fas fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-2">
+            <a href="#hero" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Início</a>
+            <a href="#diretorio" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Locais de Apoio</a>
+            <a href="#autoavaliacao" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Autoavaliação</a>
+            <a href="#familias" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Para Famílias</a>
+            <a href="#grupos" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Grupos de Reunião</a>
+            <a href="#historias" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Histórias de Superação</a>
+            <a href="#contato" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Contato Sigiloso</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Seção Hero com Seletor de Perfil -->
+        <section id="hero" class="relative bg-gradient-to-b from-brand-50 via-sky-50/50 to-slate-50 py-16 lg:py-24 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-brand-100 text-brand-700 font-semibold text-xs sm:text-sm mb-4">
+                        <i class="fas fa-shield-heart mr-1.5"></i> Espaço Seguro e 100% Confidencial
+                    </span>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                        Você não está sozinho. <br><span class="text-brand-600">Há um caminho de esperança e recomeço.</span>
+                    </h1>
+                    <p class="mt-4 text-base sm:text-lg text-slate-600">
+                        Oferecemos acolhimento, orientação profissional, grupos de apoio e diretrizes para quem busca se libertar do vício ou para famílias que precisam de ajuda.
+                    </p>
+                </div>
+
+                <!-- Seletor Interativo de Perfis -->
+                <div class="mt-12 max-w-4xl mx-auto">
+                    <p class="text-center text-sm font-bold text-slate-500 uppercase tracking-wider mb-6">Como podemos te ajudar hoje? Selecione seu perfil:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Perfil 1 -->
+                        <div onclick="selectProfile('mim')" class="cursor-pointer bg-white rounded-2xl p-6 shadow-sm border-2 border-slate-200 hover:border-brand-500 hover:shadow-lg transition-all transform hover:-translate-y-1 text-center group">
+                            <div class="w-14 h-14 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center mx-auto text-2xl group-hover:bg-brand-500 group-hover:text-white transition">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <h3 class="mt-4 font-bold text-lg text-slate-800">Preciso de ajuda para mim</h3>
+                            <p class="mt-2 text-xs text-slate-500">Quero entender meu momento, buscar tratamento ou conversar com quem entende.</p>
+                            <span class="mt-4 inline-flex items-center text-xs font-bold text-brand-600 group-hover:translate-x-1 transition">
+                                Acessar Recursos <i class="fas fa-arrow-right ml-1"></i>
+                            </span>
+                        </div>
+
+                        <!-- Perfil 2 -->
+                        <div onclick="selectProfile('familiar')" class="cursor-pointer bg-white rounded-2xl p-6 shadow-sm border-2 border-slate-200 hover:border-hope-500 hover:shadow-lg transition-all transform hover:-translate-y-1 text-center group">
+                            <div class="w-14 h-14 bg-hope-100 text-hope-600 rounded-full flex items-center justify-center mx-auto text-2xl group-hover:bg-hope-600 group-hover:text-white transition">
+                                <i class="fas fa-people-roof"></i>
+                            </div>
+                            <h3 class="mt-4 font-bold text-lg text-slate-800">Quero ajudar um familiar / amigo</h3>
+                            <p class="mt-2 text-xs text-slate-500">Orientação prática sobre como lidar com a dependência sem destruir seus limites.</p>
+                            <span class="mt-4 inline-flex items-center text-xs font-bold text-hope-600 group-hover:translate-x-1 transition">
+                                Ver Guia Familiar <i class="fas fa-arrow-right ml-1"></i>
+                            </span>
+                        </div>
+
+                        <!-- Perfil 3 -->
+                        <div onclick="selectProfile('voluntario')" class="cursor-pointer bg-white rounded-2xl p-6 shadow-sm border-2 border-slate-200 hover:border-purple-500 hover:shadow-lg transition-all transform hover:-translate-y-1 text-center group">
+                            <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto text-2xl group-hover:bg-purple-600 group-hover:text-white transition">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <h3 class="mt-4 font-bold text-lg text-slate-800">Quero apoiar ou ser voluntário</h3>
+                            <p class="mt-2 text-xs text-slate-500">Compartilhe sua experiência, apoie reuniões ou contribua com causas locais.</p>
+                            <span class="mt-4 inline-flex items-center text-xs font-bold text-purple-600 group-hover:translate-x-1 transition">
+                                Quero Participar <i class="fas fa-arrow-right ml-1"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diretório Interativo de Locais de Apoio -->
+        <section id="diretorio" class="py-16 bg-white border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+                    <div>
+                        <span class="text-brand-600 font-bold text-sm uppercase tracking-wider">Rede de Acolhimento</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">Encontre Centros e Grupos de Apoio</h2>
+                        <p class="text-slate-600 text-sm mt-1">Pesquise por unidades públicas de saúde (CAPS) ou grupos anônimos de mútua ajuda.</p>
+                    </div>
+                </div>
+
+                <!-- Filtros de Busca -->
+                <div class="bg-slate-50 p-4 sm:p-6 rounded-2xl border border-slate-200 mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Tipo de Serviço</label>
+                        <select id="filter-type" onchange="filterLocations()" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 outline-none">
+                            <option value="todos">Todos os Serviços</option>
+                            <option value="CAPS">CAPS AD (Público/SUS)</option>
+                            <option value="AA">Alcoólicos Anônimos (AA)</option>
+                            <option value="NA">Narcóticos Anônimos (NA)</option>
+                            <option value="Al-Anon">Al-Anon (Famílias)</option>
+                            <option value="CT">Comunidade Terapêutica</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Cidade / Região</label>
+                        <select id="filter-city" onchange="filterLocations()" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 outline-none">
+                            <option value="todas">Todas as Cidades</option>
+                            <option value="Sao Paulo">São Paulo / SP</option>
+                            <option value="Rio de Janeiro">Rio de Janeiro / RJ</option>
+                            <option value="Belo Horizonte">Belo Horizonte / MG</option>
+                            <option value="Curitiba">Curitiba / PR</option>
+                            <option value="Porto Alegre">Porto Alegre / RS</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Busca Direta</label>
+                        <div class="relative">
+                            <input type="text" id="filter-keyword" onkeyup="filterLocations()" placeholder="Nome, bairro ou palavra-chave..." class="w-full bg-white border border-slate-300 rounded-xl pl-9 pr-3 py-2 text-sm focus:ring-2 focus:ring-brand-500 outline-none">
+                            <i class="fas fa-search absolute left-3 top-3 text-slate-400 text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lista de Cards de Locais -->
+                <div id="locations-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Gerado dinamicamente via Javascript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Autoavaliação Anônima (Wizard em Etapas) -->
+        <section id="autoavaliacao" class="py-16 bg-slate-100 border-t border-slate-200">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-8">
+                    <span class="text-brand-600 font-bold text-sm uppercase tracking-wider">Reflexão sem Julgamentos</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">Questionário Amigo de Autoavaliação</h2>
+                    <p class="text-slate-600 text-sm mt-1">4 perguntas rápidas e 100% anônimas para ajudar você a entender seu momento atual.</p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 sm:p-8">
+                    <!-- Barra de Progresso -->
+                    <div class="mb-6">
+                        <div class="flex justify-between text-xs font-bold text-slate-500 mb-1">
+                            <span id="step-indicator">Etapa 1 de 4</span>
+                            <span id="step-percent">25%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 rounded-full h-2">
+                            <div id="progress-bar" class="bg-brand-500 h-2 rounded-full transition-all duration-300" style="width: 25%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Container da Pergunta -->
+                    <div id="quiz-container">
+                        <!-- Pergunta 1 -->
+                        <div class="quiz-step" data-step="1">
+                            <h3 class="text-lg font-bold text-slate-800 mb-4">1. Você sente que o uso de álcool ou outras substâncias tem ocupado mais tempo ou pensamentos do que gostaria?</h3>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q1" value="0" class="text-brand-600"> <span class="ml-3 text-sm font-medium">Raramente ou nunca.</span>
+                                </label>
+                                <label class="flex items-center p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q1" value="1" class="text-brand-600"> <span class="ml-3 text-sm font-medium">Às vezes me pego pensando nisso durante o dia.</span>
+                                </label>
+                                <label class="flex items-center p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q1" value="2" class="text-brand-600"> <span class="ml-3 text-sm font-medium">Frequentemente, afeta minha rotina ou planejamento diário.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Pergunta 2 -->
+                        <div class="quiz-step hidden" data-step="2">
+                            <h3 class="text-lg font-bold text-slate-800 mb-4">2. Você já tentou diminuir ou parar o consumo por conta própria, mas não obteve o resultado desejado?</h3>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q2" value="0" class="text-brand-600"> <span class="ml-3 text-sm font-medium">Não, quando decido parar eu consigo facilmente.</span>
+                                </label>
+                                <label class="flex items-center p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q2" value="1" class="text-brand-600"> <span class="ml-3 text-sm font-medium">Tentei algumas vezes, fico um tempo sem, mas depois volto.</span>
+                                </label>
+                                <label class="flex items-center p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q2" value="2" class="text-brand-600"> <span class="ml-3 text-sm font-medium">Sim, tentei várias vezes e sinto que perdi o controle.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Pergunta 3 -->
+                        <div class="quiz-step hidden" data-step="3">
+                            <h3 class="text-lg font-bold text-slate-800 mb-4">3. Pessoas próximas (familiares, amigos ou colegas) já demonstraram preocupação com seus hábitos?</h3>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q3" value="0" class="text-brand-600"> <span class="ml-3 text-sm font-medium">Ninguém nunca comentou nada.</span>
+                                </label>
+                                <label class="flex items-center p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q3" value="1" class="text-brand-600"> <span class="ml-3 text-sm font-medium">Um ou outro já fez um comentário discreto.</span>
+                                </label>
+                                <label class="flex items-center p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q3" value="2" class="text-brand-600"> <span class="ml-3 text-sm font-medium">Sim, é um assunto recorrente de conflito ou preocupação na família.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Pergunta 4 -->
+                        <div class="quiz-step hidden" data-step="4">
+                            <h3 class="text-lg font-bold text-slate-800 mb-4">4. Você sente culpa, mal-estar ou ansiedade no dia seguinte ao uso?</h3>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q4" value="0" class="text-brand-600"> <span class="ml-3 text-sm font-medium">Não costumo sentir isso.</span>
+                                </label>
+                                <label class="flex items-center p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q4" value="1" class="text-brand-600"> <span class="ml-3 text-sm font-medium">Às vezes sinto um arrependimento passageiro.</span>
+                                </label>
+                                <label class="flex items-center p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q4" value="2" class="text-brand-600"> <span class="ml-3 text-sm font-medium">Sim, sinto forte remorso e ansiedade frequente.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Resultado -->
+                        <div id="quiz-result" class="hidden text-center py-4">
+                            <div id="result-icon" class="w-16 h-16 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center mx-auto text-3xl mb-4">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3 id="result-title" class="text-2xl font-bold text-slate-800"></h3>
+                            <p id="result-desc" class="text-slate-600 text-sm mt-2 max-w-lg mx-auto"></p>
+                            
+                            <div class="mt-6 bg-brand-50 border border-brand-200 p-4 rounded-xl text-left text-xs sm:text-sm text-brand-800 space-y-2">
+                                <p class="font-bold"><i class="fas fa-lightbulb text-amber-500 mr-1"></i> Recomendação de Próximos Passos:</p>
+                                <ul id="result-steps" class="list-disc list-inside space-y-1"></ul>
+                            </div>
+
+                            <button onclick="resetQuiz()" class="mt-6 text-xs text-slate-500 hover:text-brand-600 underline font-medium">Refazer Autoavaliação</button>
+                        </div>
+                    </div>
+
+                    <!-- Botões do Wizard -->
+                    <div id="quiz-controls" class="flex justify-between items-center mt-8 pt-4 border-t border-slate-100">
+                        <button id="btn-prev" onclick="changeStep(-1)" class="hidden px-4 py-2 bg-slate-200 text-slate-700 rounded-lg text-sm font-semibold hover:bg-slate-300">Anterior</button>
+                        <div></div>
+                        <button id="btn-next" onclick="changeStep(1)" class="px-6 py-2 bg-brand-600 text-white rounded-lg text-sm font-semibold hover:bg-brand-700 shadow">Próximo</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Central de Apoio Familiar -->
+        <section id="familias" class="py-16 bg-white border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-hope-600 font-bold text-sm uppercase tracking-wider">Apoio Familiar</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">Orientação para quem convive com o problema</h2>
+                    <p class="text-slate-600 text-sm mt-2">
+                        A dependência é uma doença familiar. Cuidar de você mesmo é o primeiro passo para conseguir ajudar efetivamente quem você ama.
+                    </p>
+                </div>
+
+                <!-- Tabela "O que Fazer" vs "O que NÃO Fazer" -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <!-- O que FAZER -->
+                    <div class="bg-emerald-50/60 rounded-2xl p-6 border border-emerald-200">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-lg">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-emerald-900">O que FAZER</h3>
+                        </div>
+                        <ul class="space-y-3 text-sm text-emerald-950">
+                            <li class="flex items-start"><i class="fas fa-check-circle text-emerald-600 mt-1 mr-2"></i> <span><strong>Estabeleça limites claros:</strong> Defina o que é tolerável em sua casa para proteger sua saúde mental e física.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-emerald-600 mt-1 mr-2"></i> <span><strong>Busque apoio para VOCÊ:</strong> Participe de grupos como Al-Anon ou Amor-Exigente independentemente de ele(a) querer tratamento.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-emerald-600 mt-1 mr-2"></i> <span><strong>Incentive a responsabilidade:</strong> Deixe a pessoa arcar com as consequências naturais dos seus atos (faltas, dívidas pequenas).</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-emerald-600 mt-1 mr-2"></i> <span><strong>Dialogue em momentos de sobriedade:</strong> Converse sobre tratamento apenas quando a pessoa estiver sóbria e calma.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- O que NÃO FAZER -->
+                    <div class="bg-rose-50/60 rounded-2xl p-6 border border-rose-200">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center font-bold text-lg">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-rose-900">O que NÃO FAZER</h3>
+                        </div>
+                        <ul class="space-y-3 text-sm text-rose-950">
+                            <li class="flex items-start"><i class="fas fa-times-circle text-rose-600 mt-1 mr-2"></i> <span><strong>Não cubra mentiras ou desculpas:</strong> Evite ligar para o trabalho dando falsas justificativas ou pagar dívidas causadas pelo uso.</span></li>
+                            <li class="flex items-start"><i class="fas fa-times-circle text-rose-600 mt-1 mr-2"></i> <span><strong>Não discuta durante a crise:</strong> Tentar argumentar com a pessoa sob efeito de substâncias só gera agressividade.</span></li>
+                            <li class="flex items-start"><i class="fas fa-times-circle text-rose-600 mt-1 mr-2"></i> <span><strong>Não assuma a culpa:</strong> A dependência não é causável nem controlável exclusivamente por você.</span></li>
+                            <li class="flex items-start"><i class="fas fa-times-circle text-rose-600 mt-1 mr-2"></i> <span><strong>Não ignore sua própria vida:</strong> Não abra mão de seus hobbies, saúde e trabalho para viver em função do dependente.</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Recursos Adicionais para Família -->
+                <div class="bg-slate-900 text-white rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <span class="bg-brand-500 text-white text-xs px-3 py-1 rounded-full font-bold uppercase">Material Educativo</span>
+                        <h3 class="text-xl font-bold mt-2">Guia Prático de Orientação para Famílias</h3>
+                        <p class="text-slate-300 text-sm mt-1">Baixe nosso e-book gratuito em PDF sobre codependência, superação da culpa e como motivar para o tratamento.</p>
+                    </div>
+                    <button onclick="downloadFamilyGuide()" class="bg-hope-600 hover:bg-hope-700 text-white px-6 py-3 rounded-xl font-bold text-sm flex items-center gap-2 whitespace-nowrap shadow-lg transition">
+                        <i class="fas fa-file-pdf text-lg"></i> Baixar Guia Gratuito (PDF)
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cronograma e Reuniões de Apoio -->
+        <section id="grupos" class="py-16 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-10">
+                    <span class="text-brand-600 font-bold text-sm uppercase tracking-wider">Grupos Mútua Ajuda</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">Agenda de Reuniões & Encontros</h2>
+                    <p class="text-slate-600 text-sm mt-1">Participe de salas virtuais ou presenciais. Todas as reuniões garantem total sigilo e anônimato.</p>
+                </div>
+
+                <!-- Filtros do Cronograma -->
+                <div class="flex flex-wrap justify-center gap-3 mb-8">
+                    <button onclick="filterMeetings('todas')" class="meeting-filter-btn active bg-brand-600 text-white px-4 py-2 rounded-xl text-xs font-bold shadow">Todas</button>
+                    <button onclick="filterMeetings('online')" class="meeting-filter-btn bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 px-4 py-2 rounded-xl text-xs font-bold">Online (Salas Virtuais)</button>
+                    <button onclick="filterMeetings('presencial')" class="meeting-filter-btn bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 px-4 py-2 rounded-xl text-xs font-bold">Presencial</button>
+                </div>
+
+                <!-- Grid de Reuniões -->
+                <div id="meetings-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Gerado dinamicamente via Javascript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Mural de Histórias e Superação -->
+        <section id="historias" class="py-16 bg-white border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+                    <div>
+                        <span class="text-hope-600 font-bold text-sm uppercase tracking-wider">Esperança Viva</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">Mural de Depoimentos e Superação</h2>
+                        <p class="text-slate-600 text-sm mt-1">Histórias reais de pessoas que recuperaram a vida e reconstruíram laços.</p>
+                    </div>
+                    <button onclick="toggleModal('story-modal')" class="mt-4 md:mt-0 bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 shadow">
+                        <i class="fas fa-pen-nib"></i> Compartilhar Minha História
+                    </button>
+                </div>
+
+                <!-- Grid de Depoimentos -->
+                <div id="stories-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Gerado via Javascript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulário de Contato Sigiloso e FAQ -->
+        <section id="faq" class="py-16 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Coluna do FAQ (7 cols) -->
+                    <div class="lg:col-span-7">
+                        <span class="text-brand-600 font-bold text-sm uppercase tracking-wider">Tire suas dúvidas</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1 mb-6">Perguntas Frequentes</h2>
+                        
+                        <div class="space-y-4" id="faq-accordion">
+                            <!-- Item FAQ 1 -->
+                            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                                <button onclick="toggleFaq(1)" class="w-full text-left p-4 font-bold text-slate-800 flex justify-between items-center hover:bg-slate-50">
+                                    <span>Como sei se cheguei ao ponto de precisar de tratamento profissional?</span>
+                                    <i id="faq-icon-1" class="fas fa-chevron-down text-slate-400 transition-transform"></i>
+                                </button>
+                                <div id="faq-answer-1" class="hidden p-4 pt-0 text-sm text-slate-600 border-t border-slate-100 bg-slate-50">
+                                    Quando o consumo passa a interferir na sua saúde, relacionamentos, trabalho ou quando você tenta parar e não consegue por conta própria, é o momento ideal de buscar orientação especializada no CAPS ou em grupos de apoio.
+                                </div>
+                            </div>
+
+                            <!-- Item FAQ 2 -->
+                            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                                <button onclick="toggleFaq(2)" class="w-full text-left p-4 font-bold text-slate-800 flex justify-between items-center hover:bg-slate-50">
+                                    <span>O atendimento no CAPS é gratuito? Preciso de encaminhamento?</span>
+                                    <i id="faq-icon-2" class="fas fa-chevron-down text-slate-400 transition-transform"></i>
+                                </button>
+                                <div id="faq-answer-2" class="hidden p-4 pt-0 text-sm text-slate-600 border-t border-slate-100 bg-slate-50">
+                                    Sim! Os CAPS AD (Centro de Atenção Psicossocial - Álcool e Drogas) são serviços 100% gratuitos do SUS. Não é necessário encaminhamento prévio: você pode ir diretamente à unidade portando documento e comprovante de residência.
+                                </div>
+                            </div>
+
+                            <!-- Item FAQ 3 -->
+                            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                                <button onclick="toggleFaq(3)" class="w-full text-left p-4 font-bold text-slate-800 flex justify-between items-center hover:bg-slate-50">
+                                    <span>O que é Codependência e como afeta a família?</span>
+                                    <i id="faq-icon-3" class="fas fa-chevron-down text-slate-400 transition-transform"></i>
+                                </button>
+                                <div id="faq-answer-3" class="hidden p-4 pt-0 text-sm text-slate-600 border-t border-slate-100 bg-slate-50">
+                                    Codependência é uma condição emocional em que o familiar passa a viver em função do dependente, tentando controlar seus passos, assumindo responsabilidades dele e negligenciando a própria saúde e felicidade.
+                                </div>
+                            </div>
+
+                            <!-- Item FAQ 4 -->
+                            <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                                <button onclick="toggleFaq(4)" class="w-full text-left p-4 font-bold text-slate-800 flex justify-between items-center hover:bg-slate-50">
+                                    <span>As reuniões do AA e NA são pagas ou religiosas?</span>
+                                    <i id="faq-icon-4" class="fas fa-chevron-down text-slate-400 transition-transform"></i>
+                                </button>
+                                <div id="faq-answer-4" class="hidden p-4 pt-0 text-sm text-slate-600 border-t border-slate-100 bg-slate-50">
+                                    Não. São instituições sem fins lucrativos, totalmente gratuitas e desvinculadas de qualquer religião, seita ou partido político. O único requisito para ser membro é o desejo de parar de consumir.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna do Formulário Sigiloso (5 cols) -->
+                    <div class="lg:col-span-5" id="contato">
+                        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-md">
+                            <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-md font-bold mb-3">
+                                <i class="fas fa-lock mr-1"></i> Formulário Sigiloso
+                            </span>
+                            <h3 class="text-xl font-bold text-slate-900">Mensagem Confidencial</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-6">Envie suas dúvidas. Nossa equipe de acolhimento responderá de forma discreta.</p>
+
+                            <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Como prefere ser chamado? (Pode ser apelido)</label>
+                                    <input type="text" required placeholder="Seu nome ou apelido" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-sm focus:ring-2 focus:ring-brand-500 outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Seu E-mail para resposta</label>
+                                    <input type="email" required placeholder="seuemail@exemplo.com" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-sm focus:ring-2 focus:ring-brand-500 outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Como podemos te apoiar?</label>
+                                    <textarea rows="4" required placeholder="Descreva brevemente sua situação ou dúvida..." class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-sm focus:ring-2 focus:ring-brand-500 outline-none"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-sm transition shadow">
+                                    <i class="fas fa-paper-plane mr-1"></i> Enviar Mensagem Segura
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé Institucional Completo -->
+    <footer class="bg-slate-900 text-slate-300 pt-12 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
+                <!-- Coluna 1: Info -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center text-white font-bold">
+                            <i class="fas fa-seedling text-sm"></i>
+                        </div>
+                        <span class="text-xl font-bold text-white tracking-tight">Recomeço</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Plataforma comunitária sem fins lucrativos dedicada à orientação, prevenção e apoio à recuperação da dependência química e suporte familiar.
+                    </p>
+                </div>
+
+                <!-- Coluna 2: Telefones Úteis -->
+                <div>
+                    <h4 class="text-white text-sm font-bold uppercase mb-3 tracking-wider">Telefones Públicos 24h</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><strong class="text-white">CVV (Apoio Emocional):</strong> 188</li>
+                        <li><strong class="text-white">SAMU (Emergência Médica):</strong> 192</li>
+                        <li><strong class="text-white">SUS (Disque Saúde):</strong> 136</li>
+                        <li><strong class="text-white">Polícia Militar:</strong> 190</li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Links Rápidos -->
+                <div>
+                    <h4 class="text-white text-sm font-bold uppercase mb-3 tracking-wider">Navegação Rápida</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#diretorio" class="hover:text-white transition">Busca de CAPS e Grupos</a></li>
+                        <li><a href="#autoavaliacao" class="hover:text-white transition">Autoavaliação Anônima</a></li>
+                        <li><a href="#familias" class="hover:text-white transition">Guia para Familiares</a></li>
+                        <li><a href="#grupos" class="hover:text-white transition">Salas de Reunião On-line</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Compromisso com o Sigilo -->
+                <div>
+                    <h4 class="text-white text-sm font-bold uppercase mb-3 tracking-wider">Compromisso de Privacidade</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                        Não armazenamos dados pessoais identificáveis. Todo acesso a questionários e navegação é totalmente anônimo e protegido.
+                    </p>
+                    <span class="inline-flex items-center text-xs text-emerald-400 font-bold">
+                        <i class="fas fa-user-shield mr-1"></i> Conexão Segura & Anônima
+                    </span>
+                </div>
+            </div>
+
+            <!-- Direitos Autorais -->
+            <div class="mt-8 text-center text-xs text-slate-500">
+                <p>&copy; 2026 Recomeço — Apoio à Recuperação e Orientação Familiar. Todos os direitos reservados.</p>
+                <p class="mt-1">Este portal tem caráter informativo. Em situações de emergência médica ou risco de vida, contate imediatamente o SAMU (192) ou o CVV (188).</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAIS DO SISTEMA -->
+
+    <!-- Modal 1: Emergência 24h -->
+    <div id="emergency-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative animate-fade-in">
+            <button onclick="toggleModal('emergency-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="flex items-center gap-3 text-red-600 mb-4">
+                <i class="fas fa-triangle-exclamation text-3xl"></i>
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900">Canais de Ajuda Imediata 24h</h3>
+                    <p class="text-xs text-slate-500">Se você ou alguém está em perigo ou com pensamentos de crise, ligue gratuitamente:</p>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <a href="tel:188" class="flex items-center justify-between p-4 bg-red-50 hover:bg-red-100 rounded-xl border border-red-200 transition">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center font-bold">188</div>
+                        <div>
+                            <p class="font-bold text-slate-800 text-sm">CVV — Centro de Valorização da Vida</p>
+                            <p class="text-xs text-slate-500">Apoio emocional e prevenção do suicídio (24 horas)</p>
+                        </div>
+                    </div>
+                    <span class="bg-red-600 text-white text-xs px-3 py-1.5 rounded-lg font-bold">Ligar</span>
+                </a>
+
+                <a href="tel:192" class="flex items-center justify-between p-4 bg-amber-50 hover:bg-amber-100 rounded-xl border border-amber-200 transition">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-amber-600 text-white flex items-center justify-center font-bold">192</div>
+                        <div>
+                            <p class="font-bold text-slate-800 text-sm">SAMU — Emergência Médica</p>
+                            <p class="text-xs text-slate-500">Para casos de overdose, crises de abstinência ou surtos</p>
+                        </div>
+                    </div>
+                    <span class="bg-amber-600 text-white text-xs px-3 py-1.5 rounded-lg font-bold">Ligar</span>
+                </a>
+
+                <a href="tel:136" class="flex items-center justify-between p-4 bg-sky-50 hover:bg-sky-100 rounded-xl border border-sky-200 transition">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-sky-600 text-white flex items-center justify-center font-bold">136</div>
+                        <div>
+                            <p class="font-bold text-slate-800 text-sm">Disque Saúde SUS</p>
+                            <p class="text-xs text-slate-500">Informações sobre postos de saúde e CAPS da sua região</p>
+                        </div>
+                    </div>
+                    <span class="bg-sky-600 text-white text-xs px-3 py-1.5 rounded-lg font-bold">Ligar</span>
+                </a>
+            </div>
+
+            <button onclick="toggleModal('emergency-modal')" class="w-full mt-6 bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2.5 rounded-xl text-sm">
+                Fechar
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal 2: Compartilhar História -->
+    <div id="story-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+            <button onclick="toggleModal('story-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="text-xl font-bold text-slate-900 mb-1">Compartilhe sua História</h3>
+            <p class="text-xs text-slate-500 mb-4">Seu depoimento pode ser o farol de esperança para quem está começando hoje.</p>
+
+            <form onsubmit="handleStorySubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Nome ou Codinome Anônimo</label>
+                    <input id="story-author" type="text" required placeholder="Ex: Roberto S. / Anônimo" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-sm outline-none focus:ring-2 focus:ring-brand-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Tempo de Sobriedade / Superação</label>
+                    <input id="story-time" type="text" placeholder="Ex: 2 anos limpo / Familiar apoiador" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-sm outline-none focus:ring-2 focus:ring-brand-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Sua mensagem de motivação</label>
+                    <textarea id="story-content" rows="4" required placeholder="Conte brevemente os desafios e a alegria do seu recomeço..." class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-sm outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-hope-600 hover:bg-hope-700 text-white font-bold py-3 rounded-xl text-sm shadow">
+                    Publicar Depoimento Anônimo
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 3: Simulação de Sala Virtual de Reunião -->
+    <div id="virtual-meeting-modal" class="fixed inset-0 bg-slate-900/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 text-white relative shadow-2xl">
+            <button onclick="toggleModal('virtual-meeting-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase mb-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span> Sala Virtual Ativa (Simulação)
+            </div>
+            <h3 id="virtual-meeting-title" class="text-xl font-bold">Grupo de Mútua Ajuda — Recomeço</h3>
+            <p class="text-xs text-slate-400 mt-1 mb-6">Ambiente seguro, com microfone e câmera desativados por padrão para garantir seu anonimato.</p>
+
+            <!-- Video/Audio Interface Mockup -->
+            <div class="bg-slate-950 rounded-xl p-8 text-center border border-slate-800 my-4">
+                <div class="w-20 h-20 rounded-full bg-brand-600/30 text-brand-400 flex items-center justify-center mx-auto text-3xl mb-3 border border-brand-500/30">
+                    <i class="fas fa-users font-bold"></i>
+                </div>
+                <h4 class="font-bold text-slate-200">Você está conectado à sala</h4>
+                <p class="text-xs text-slate-500 mt-1">14 participantes presentes no momento.</p>
+                
+                <div class="flex justify-center gap-4 mt-6">
+                    <button class="w-10 h-10 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center text-sm"><i class="fas fa-microphone-slash"></i></button>
+                    <button class="w-10 h-10 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center text-sm"><i class="fas fa-video-slash"></i></button>
+                    <button class="w-10 h-10 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center text-sm"><i class="fas fa-hand"></i></button>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center text-xs text-slate-400 mt-4">
+                <span><i class="fas fa-shield-halved text-emerald-400 mr-1"></i> Criptografia e anonimato ativados</span>
+                <button onclick="toggleModal('virtual-meeting-modal')" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-bold">Sair da Sala</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* DATASETS DE EXEMPLO */
+        const locationsData = [
+            { id: 1, type: "CAPS", city: "Sao Paulo", name: "CAPS AD III - Sé", address: "Rua do Carmo, 58 - Centro, São Paulo - SP", phone: "(11) 3105-1234", hours: "Atendimento 24h (Seg a Dom)" },
+            { id: 2, type: "AA", city: "Sao Paulo", name: "Grupo AA - Central SP", address: "Av. Paulista, 1000 - Bela Vista, São Paulo - SP", phone: "(11) 3223-9000", hours: "Reuniões Diárias às 19:30" },
+            { id: 3, type: "NA", city: "Rio de Janeiro", name: "Grupo NA - Esperança RJ", address: "Rua México, 31 - Centro, Rio de Janeiro - RJ", phone: "(21) 2533-2200", hours: "Seg, Qua e Sex às 19:00" },
+            { id: 4, type: "Al-Anon", city: "Belo Horizonte", name: "Al-Anon - Grupo Paz Familiar", address: "Rua da Bahia, 1200 - Lourdes, Belo Horizonte - MG", phone: "(31) 3274-1100", hours: "Terças e Quintas às 18:30" },
+            { id: 5, type: "CAPS", city: "Curitiba", name: "CAPS AD III - Portão", address: "Rua Ponta Grossa, 135 - Portão, Curitiba - PR", phone: "(41) 3345-8800", hours: "Atendimento 24h" },
+            { id: 6, type: "CT", city: "Porto Alegre", name: "Comunidade Terapêutica Renovação", address: "Estrada do Lami, 4500 - Porto Alegre - RS", phone: "(51) 3268-9900", hours: "Acolhimento com agendamento" }
+        ];
+
+        const meetingsData = [
+            { id: 1, type: "online", title: "Grupo de Apoio Recomeço Online", day: "Hoje (Segunda-feira)", time: "20:00 - 21:30", desc: "Aberto para pessoas em busca de sobriedade e familiares." },
+            { id: 2, type: "online", title: "Sala Virtual Al-Anon (Apoio à Família)", day: "Terça-feira", time: "19:00 - 20:30", desc: "Foco em codependência, limites saudáveis e suporte recíproco." },
+            { id: 3, type: "presencial", title: "Reunião de Mútua Ajuda - Centro", day: "Quarta-feira", time: "19:30 - 21:00", desc: "Local: Salão Comunitário São José - São Paulo/SP" },
+            { id: 4, type: "online", title: "Bate-papo de Prevenção a Recaídas", day: "Quinta-feira", time: "20:00 - 21:00", desc: "Estratégias práticas para lidar com gatilhos e ansiedade." }
+        ];
+
+        let storiesData = [
+            { id: 1, author: "Marcelo T.", time: "3 anos de sobriedade", text: "Achei que minha vida tinha acabado quando perdi o emprego por causa do álcool. No CAPS e nas reuniões do AA encontrei pessoas que não me julgaram. Hoje reconstruí minha família!" },
+            { id: 2, author: "Clara S.", time: "Mãe de acolhido", text: "Descobrir que meu filho usava drogas foi assustador. O Al-Anon me ensinou a parar de cobrir os erros dele e a cuidar de mim. Isso abriu portas para que ele aceitasse ajuda." },
+            { id: 3, author: "Anônimo", time: "8 meses limpo", text: "O questionário deste site foi o primeiro passo que dei sem ter medo de ser julgado. Hoje participo da sala virtual toda quinta-feira!" }
+        ];
+
+        /* ACCESSIBILITY & FONT RESIZING */
+        let currentFontSize = 100; // Porcentagem
+        function changeFontSize(delta) {
+            currentFontSize = Math.max(85, Math.min(130, currentFontSize + (delta * 5)));
+            document.documentElement.style.fontSize = `${currentFontSize}%`;
+        }
+
+        function resetFontSize() {
+            currentFontSize = 100;
+            document.documentElement.style.fontSize = '100%';
+        }
+
+        function toggleHighContrast() {
+            document.body.classList.toggle('high-contrast');
+        }
+
+        /* MOBILE MENU TOGGLE */
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        /* GENERAL MODAL CONTROLLER */
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.toggle('hidden');
+            }
+        }
+
+        /* PROFILE SELECTOR LOGIC */
+        function selectProfile(profileType) {
+            if (profileType === 'mim') {
+                document.getElementById('autoavaliacao').scrollIntoView({ behavior: 'smooth' });
+            } else if (profileType === 'familiar') {
+                document.getElementById('familias').scrollIntoView({ behavior: 'smooth' });
+            } else if (profileType === 'voluntario') {
+                document.getElementById('historias').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        /* RENDER SUPPORT LOCATIONS */
+        function renderLocations(data) {
+            const container = document.getElementById('locations-grid');
+            container.innerHTML = '';
+
+            if (data.length === 0) {
+                container.innerHTML = `<div class="col-span-full text-center py-8 text-slate-500">Nenhum local encontrado para esses filtros. Tente alterar sua busca.</div>`;
+                return;
+            }
+
+            data.forEach(item => {
+                const card = `
+                    <div class="bg-slate-50 hover:bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="px-2.5 py-1 rounded-md text-xs font-bold uppercase bg-brand-100 text-brand-700">${item.type}</span>
+                            <span class="text-xs font-semibold text-slate-500"><i class="fas fa-clock mr-1"></i>${item.hours}</span>
+                        </div>
+                        <h4 class="font-bold text-slate-800 text-base mb-1">${item.name}</h4>
+                        <p class="text-xs text-slate-600 mb-3"><i class="fas fa-map-marker-alt text-brand-500 mr-1.5"></i>${item.address}</p>
+                        <div class="flex items-center justify-between pt-3 border-t border-slate-200">
+                            <span class="text-xs font-bold text-slate-700"><i class="fas fa-phone text-emerald-600 mr-1"></i>${item.phone}</span>
+                            <a href="https://maps.google.com/?q=${encodeURIComponent(item.name + ' ' + item.address)}" target="_blank" class="text-xs font-bold text-brand-600 hover:text-brand-800 flex items-center gap-1">
+                                Ver Mapa <i class="fas fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+        }
+
+        function filterLocations() {
+            const typeVal = document.getElementById('filter-type').value;
+            const cityVal = document.getElementById('filter-city').value;
+            const keywordVal = document.getElementById('filter-keyword').value.toLowerCase();
+
+            const filtered = locationsData.filter(item => {
+                const matchesType = (typeVal === 'todos' || item.type === typeVal);
+                const matchesCity = (cityVal === 'todas' || item.city === cityVal);
+                const matchesKeyword = item.name.toLowerCase().includes(keywordVal) || item.address.toLowerCase().includes(keywordVal);
+                return matchesType && matchesCity && matchesKeyword;
+            });
+
+            renderLocations(filtered);
+        }
+
+        /* AUTO-AVALIAÇÃO QUIZ WIZARD */
+        let currentQuizStep = 1;
+        const totalQuizSteps = 4;
+        const quizAnswers = {};
+
+        function changeStep(delta) {
+            if (delta === 1) {
+                // Verificar se a pergunta atual foi respondida
+                const selected = document.querySelector(`input[name="q${currentQuizStep}"]:checked`);
+                if (!selected) {
+                    alert("Por favor, selecione uma opção antes de continuar.");
+                    return;
+                }
+                quizAnswers[`q${currentQuizStep}`] = parseInt(selected.value);
+            }
+
+            const currentElement = document.querySelector(`.quiz-step[data-step="${currentQuizStep}"]`);
+            currentElement.classList.add('hidden');
+
+            currentQuizStep += delta;
+
+            if (currentQuizStep > totalQuizSteps) {
+                showQuizResult();
+                return;
+            }
+
+            const nextElement = document.querySelector(`.quiz-step[data-step="${currentQuizStep}"]`);
+            nextElement.classList.remove('hidden');
+
+            updateQuizUI();
+        }
+
+        function updateQuizUI() {
+            document.getElementById('step-indicator').innerText = `Etapa ${currentQuizStep} de ${totalQuizSteps}`;
+            const percent = (currentQuizStep / totalQuizSteps) * 100;
+            document.getElementById('step-percent').innerText = `${percent}%`;
+            document.getElementById('progress-bar').style.width = `${percent}%`;
+
+            document.getElementById('btn-prev').classList.toggle('hidden', currentQuizStep === 1);
+            if (currentQuizStep === totalQuizSteps) {
+                document.getElementById('btn-next').innerText = 'Ver Resultado';
+            } else {
+                document.getElementById('btn-next').innerText = 'Próximo';
+            }
+        }
+
+        function showQuizResult() {
+            document.getElementById('quiz-controls').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            document.getElementById('step-indicator').innerText = 'Concluído';
+            document.getElementById('step-percent').innerText = '100%';
+            document.getElementById('progress-bar').style.width = '100%';
+
+            // Calcular Pontuação
+            const score = (quizAnswers.q1 || 0) + (quizAnswers.q2 || 0) + (quizAnswers.q3 || 0) + (quizAnswers.q4 || 0);
+
+            const titleEl = document.getElementById('result-title');
+            const descEl = document.getElementById('result-desc');
+            const stepsEl = document.getElementById('result-steps');
+
+            if (score <= 2) {
+                titleEl.innerText = "Nível Baixo de Risco";
+                descEl.innerText = "Seus relatos indicam que você possui um bom controle sobre seus hábitos no momento. No entanto, é sempre válido manter a atenção para prevenção.";
+                stepsEl.innerHTML = `
+                    <li>Mantenha hobbies e hábitos saudáveis no seu dia a dia.</li>
+                    <li>Acompanhe nossas dicas educativas sobre saúde emocional.</li>
+                `;
+            } else if (score <= 5) {
+                titleEl.innerText = "Alerta Moderado de Risco";
+                descEl.innerText = "Você está apresentando sinais de desconforto ou perda parcial de controle. É um excelente momento para conversar com profissionais antes que isso se intensifique.";
+                stepsEl.innerHTML = `
+                    <li>Visite um CAPS AD próximo ou agende uma conversa com psicólogo.</li>
+                    <li>Participe de uma reunião informativa em grupo online para troca de experiências.</li>
+                `;
+            } else {
+                titleEl.innerText = "Recomendação de Apoio Imediato";
+                descEl.innerText = "Seus relatos indicam forte impacto do consumo na sua rotina e bem-estar. Lembre-se: pedir ajuda é um sinal de coragem e não de fraqueza.";
+                stepsEl.innerHTML = `
+                    <li>Procure o CAPS AD mais próximo para um acolhimento multiprofissional gratuito.</li>
+                    <li>Participe de grupos de mútua ajuda como Alcoólicos Anônimos (AA) ou Narcóticos Anônimos (NA).</li>
+                    <li>Converse com familiares ou amigos de confiança sobre seu desejo de mudança.</li>
+                `;
+            }
+        }
+
+        function resetQuiz() {
+            currentQuizStep = 1;
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-controls').classList.remove('hidden');
+            
+            document.querySelectorAll('.quiz-step').forEach((el, index) => {
+                el.classList.toggle('hidden', index !== 0);
+            });
+            
+            document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+            updateQuizUI();
+        }
+
+        /* MEETINGS RENDER & FILTER */
+        function renderMeetings(data) {
+            const container = document.getElementById('meetings-grid');
+            container.innerHTML = '';
+
+            data.forEach(m => {
+                const card = `
+                    <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold ${m.type === 'online' ? 'bg-purple-100 text-purple-700' : 'bg-amber-100 text-amber-800'}">
+                                    ${m.type === 'online' ? '<i class="fas fa-video mr-1"></i>Online' : '<i class="fas fa-building mr-1"></i>Presencial'}
+                                </span>
+                                <span class="text-xs text-slate-500 font-medium">${m.day}</span>
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-base">${m.title}</h4>
+                            <p class="text-xs text-brand-600 font-bold mt-1"><i class="far fa-clock mr-1"></i>${m.time}</p>
+                            <p class="text-xs text-slate-600 mt-2">${m.desc}</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-100">
+                            ${m.type === 'online' ? 
+                                `<button onclick="openVirtualMeeting('${m.title}')" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2 rounded-xl text-xs flex items-center justify-center gap-1">
+                                    <i class="fas fa-door-open"></i> Entrar na Sala Virtual
+                                </button>` :
+                                `<button onclick="alert('Consulte o endereço completo no nosso diretório de locais.')" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2 rounded-xl text-xs">
+                                    Ver Detalhes do Local
+                                </button>`
+                            }
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+        }
+
+        function filterMeetings(type) {
+            document.querySelectorAll('.meeting-filter-btn').forEach(b => {
+                b.classList.remove('active', 'bg-brand-600', 'text-white');
+                b.classList.add('bg-white', 'text-slate-700');
+            });
+            event.target.classList.add('active', 'bg-brand-600', 'text-white');
+
+            if (type === 'todas') {
+                renderMeetings(meetingsData);
+            } else {
+                renderMeetings(meetingsData.filter(m => m.type === type));
+            }
+        }
+
+        function openVirtualMeeting(title) {
+            document.getElementById('virtual-meeting-title').innerText = title;
+            toggleModal('virtual-meeting-modal');
+        }
+
+        /* STORIES RENDER & SUBMIT */
+        function renderStories() {
+            const container = document.getElementById('stories-grid');
+            container.innerHTML = '';
+
+            storiesData.forEach(s => {
+                const card = `
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                        <p class="text-sm text-slate-700 italic mb-4">"${s.text}"</p>
+                        <div class="flex items-center gap-3 pt-4 border-t border-slate-200">
+                            <div class="w-9 h-9 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold text-sm">
+                                ${s.author.charAt(0)}
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-bold text-slate-800">${s.author}</h5>
+                                <span class="text-[11px] text-brand-600 font-medium">${s.time}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+        }
+
+        function handleStorySubmit(e) {
+            e.preventDefault();
+            const author = document.getElementById('story-author').value;
+            const time = document.getElementById('story-time').value;
+            const content = document.getElementById('story-content').value;
+
+            storiesData.unshift({
+                id: Date.now(),
+                author: author || "Anônimo",
+                time: time || "Membro da comunidade",
+                text: content
+            });
+
+            renderStories();
+            toggleModal('story-modal');
+            alert("Sua história foi compartilhada anonimamente com sucesso!");
+            e.target.reset();
+        }
+
+        /* DOWNLOAD GUIDE SIMULATION */
+        function downloadFamilyGuide() {
+            alert("Iniciando o download do 'Guia Prático para Famílias - Recomeço.pdf'...");
+        }
+
+        /* FAQ ACCORDION TOGGLE */
+        function toggleFaq(id) {
+            const ans = document.getElementById(`faq-answer-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+
+            if (ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                ans.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        /* CONTACT FORM HANDLING */
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            alert("Sua mensagem confidencial foi enviada com sucesso! Responderemos em breve com total sigilo.");
+            e.target.reset();
+        }
+
+        /* INITIALIZATION */
+        window.onload = function() {
+            renderLocations(locationsData);
+            renderMeetings(meetingsData);
+            renderStories();
+        };
+    </script>
+</body>
+</html>
