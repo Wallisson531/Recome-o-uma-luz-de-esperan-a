@@ -45,8 +45,62 @@
 
     <main>
         <section id="inicio" class="hero">
-            
+            <div class="container">
+                <h1>Voce não está sozinho. <br>Existe um caminho de recomeço.</h1>
+                <p class="hero__texto">Acolhimento, grupos de apoio e orientações par quem quer sair da dependência e para as familias que precisam de ajuda.</p>
+
+                <p class="hero__pergunta">Como podemos ajuda?</p>
+                <div class="grid grid--3">
+                    <a href="#autoavaliacao" class="cartao cartao--link">
+                        <h3>Preciso de ajuda para mim</h3>
+                        <p>entender meu momento, buscar tratamento ou conversar com quem entende</p>
+                    </a>
+
+                    <a href="#familias" class="cartao cartao--link">
+                        <h3>Quero ajudar um familiar ou amigo</h3>
+                        <p>Orientação pratica para lidar com a dependência sem perder seus limites.</p>
+                    </a>
+
+                    <a href="#historias" class="cartao cartao--link">
+                        <h3>Quero apoiar ou compartilhar</h3>
+                        <p>Conte sua experiencia e inspire quem está começando agora.</p>
+                    </a>
+                </div>
+            </div>
         </section>
+        
+        <!--LOCAIS DE APOIO (VOU TRAZER OS DADOS DO SUPABASE)-->
+        <section id="locais" class="secao">
+            <div class="container">
+                <h2>Encontre clinicas e centro de apoio</h2>
+                <p class="secao__subtitulo">Pesquise por Cidade, Estado ou Nome</p>
+
+                <div class="filtros">
+                    <label>Estados
+                        <select id="filtro-estado"><option value="">Todos</option></select>
+                    </label>
+
+                    <label>Cidade
+                        <select id="siltro-cidade"><option value="">Todas</option></select>
+                    </label>
+
+                    <label>Buscar
+                        <input type"search" id="filtro-busca" placeholder="Nome da clinica">
+                    </label>
+                </div>
+
+                <p  id="clinicas-status" class="status" role="status"></p>
+                <div id="clinicas-lista" class="grid grid--3"></div>
+            </div>
+        </section>
+
+        <!--AUTOAVALIACAO-->
+        <section id="#autoavaliacao" class="secao secao--alt">
+            <div class="container container--estreito">
+                <h2>AutoAvaliação Anonima</h2>
+            </div>
+        </section>
+
     </main>
 </body>
 </html>
