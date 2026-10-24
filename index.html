@@ -81,7 +81,7 @@
                     </label>
 
                     <label>Cidade
-                        <select id="siltro-cidade"><option value="">Todas</option></select>
+                        <select id="filtro-cidade"><option value="">Todas</option></select>
                     </label>
 
                     <label>Buscar
@@ -95,9 +95,49 @@
         </section>
 
         <!--AUTOAVALIACAO-->
-        <section id="#autoavaliacao" class="secao secao--alt">
+        <section id="autoavaliacao" class="secao secao--alt">
             <div class="container container--estreito">
-                <h2>AutoAvaliação Anonima</h2>
+                <h2>Autoavaliação anônima</h2>
+                <p class="secao__subtitulo">Quatro perguntas rápidas para refletir sobre o seu momento. Nada é enviado ou salvo.</p>
+ 
+            <div class="cartao quiz">
+             <div class="quiz__progresso" aria-hidden="true"><div id="quiz-barra"></div></div>
+             <p id="quiz-etapa" class="quiz__etapa"></p>
+            <div id="quiz-corpo"></div>
+            <div class="quiz__botoes">
+            <button class="botao botao--secundario" id="quiz-anterior" hidden>Anterior</button>
+            <button class="botao" id="quiz-proximo">Próxima</button>
+                </div>
+                     <p class="aviso">Este questionário não é um diagnóstico. Só um profissional de saúde pode avaliar o seu caso.</p>
+                </div>
+                </div>
+        </section>
+
+        <!--FAMILIAS-->
+        <section id="familias" class="secao">
+            <div class="container">
+                <h2>Para quem convive com a dependencia</h2>
+                <p class="secao__subtitulo">Cuidar de voce e o primeiro passo para ajudar quem voce ama.</p>
+
+                <div class="grid grid--2">
+                    <div class="cartao cartao--sim">
+                        <h3>O que fazer</h3>
+                        <ul>
+                            <li><strong>Defina limites claros:</strong>Diga oque e aceitavel na sua casa.
+                            </li>
+
+                            <li><strong>Busque apoio para voce:</strong>grupos com AL-Anon e Amor-Exigente ajudam mesmo que a pessoa nao aceite tratamento.
+                            </li>
+                            
+                            <li><strong>Incentive a responsabilidade:</strong>deixe a pessoa arcar com as consequencia dos propios atos.
+                            </li>
+
+                            <li><strong>Converse com calma:</strong>fale sobre tratamento quando a pessoa estiver sobria.
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
             </div>
         </section>
 
