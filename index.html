@@ -113,30 +113,116 @@
                 </div>
         </section>
 
-        <!--FAMILIAS-->
+        <!-- FAMÍLIAS -->
         <section id="familias" class="secao">
             <div class="container">
-                <h2>Para quem convive com a dependencia</h2>
-                <p class="secao__subtitulo">Cuidar de voce e o primeiro passo para ajudar quem voce ama.</p>
-
+                <h2>Para quem convive com a dependência</h2>
+                <p class="secao__subtitulo">Cuidar de você é o primeiro passo para ajudar quem você ama.</p>
+        
                 <div class="grid grid--2">
-                    <div class="cartao cartao--sim">
-                        <h3>O que fazer</h3>
-                        <ul>
-                            <li><strong>Defina limites claros:</strong>Diga oque e aceitavel na sua casa.
-                            </li>
+                <div class="cartao cartao--sim">
+                    <h3>O que fazer</h3>
+                    <ul>
+                    <li><strong>Defina limites claros:</strong> diga o que é aceitável na sua casa.</li>
+                    <li><strong>Busque apoio para você:</strong> grupos como Al-Anon e Amor-Exigente ajudam mesmo que a pessoa não aceite tratamento.</li>
+                    <li><strong>Incentive a responsabilidade:</strong> deixe a pessoa arcar com as consequências dos próprios atos.</li>
+                    <li><strong>Converse com calma:</strong> fale sobre tratamento quando a pessoa estiver sóbria.</li>
+                    </ul>
+                </div>
+                <div class="cartao cartao--nao">
+                    <h3>O que evitar</h3>
+                    <ul>
+                    <li><strong>Cobrir mentiras:</strong> não invente desculpas nem pague dívidas causadas pelo uso.</li>
+                    <li><strong>Discutir durante a crise:</strong> argumentar com alguém sob efeito de substâncias aumenta a agressividade.</li>
+                    <li><strong>Assumir a culpa:</strong> a dependência não é culpa de quem convive com ela.</li>
+                    <li><strong>Abandonar a própria vida:</strong> mantenha sua saúde, seu trabalho e seus hobbies.</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </section>
 
-                            <li><strong>Busque apoio para voce:</strong>grupos com AL-Anon e Amor-Exigente ajudam mesmo que a pessoa nao aceite tratamento.
-                            </li>
-                            
-                            <li><strong>Incentive a responsabilidade:</strong>deixe a pessoa arcar com as consequencia dos propios atos.
-                            </li>
+        <!--GRUPOS-->
+        <section id="grupos" class="secao secao--alt">
+            <div class="container">
+                <h2>Agende de reuniões</h2>
+                <p class="secao__subtitulo">Grupos de mutua ajuda, online e presenciais.</p>
 
-                            <li><strong>Converse com calma:</strong>fale sobre tratamento quando a pessoa estiver sobria.
-                            </li>
-                        </ul>
-                        
+                <div class="abas" role="group" aria-label="Filtrar reuniões">
+                    <button class="aba ativa" data-filtro="todas">Todas</button>
+                    <button class="aba" data-filtro="online">Online</button>
+                    <button class="aba" data-filtro="presencial">Presencial</button>
+                </div>
+
+                <div>
+                    <div id="reuniao-lista" class="grid grid--3"></div>
+                </div>
+            </div>
+        </section>
+
+        <!--Historias (Vou trazer os dados do Banco de dados(SupaBase)-->
+        <section id="historias" class="secao">
+            <div class="container">
+                <div class="secao__topo">
+                    <div>
+                        <h2>Depoimentos de superação</h2>
+                        <p class="secao__subtitulo" id="historias-aviso">Relatos de pessoas que recontruiram a vida.
+                        </p>
                     </div>
+
+                    <button class="botao" data-abrir="modal-historia">
+                        Compartilhar a minha historia
+                    </button>
+                    <div id="historias-lista" class="grid grid--3"></div>
+                </div>
+            </div>
+        </section>
+
+        <!--FAQ-->
+        <section id="faq" class="secao secao--alt">
+            <div class="container grid grid--faq">
+                <div>
+                    <h2>Perguntas Frequentes</h2>
+                    <details>
+                        <summary>Como sei se preciso de tratamento profissional?</summary>
+                        <p>Quando o consumo interfere na sua saúdel, nos relecionametos ou no trabalho, ou quando voce tenta parar e não consegue sozinho, é hora de buscar orientação no CAPS ou em grupos de apoio.</p>
+                    </details>
+
+                    <details>
+                        <summary>O atendimento no CAPS e gratuito? Preciso de encaminhamento?</summary>
+                        <p>O CAPS AD é um serviço gratuito do SUS e, em geral, aceita atendimento direto. Leve um documento com foto, e se possivel um comprovante de residencia. Confirme as regras nas unidades proximas.</p>
+                    </details>
+
+                    <details>
+                        <summary>O que e coodependencia?</summary>
+                        <p>E quando o familiar passa a viver a função da pessoa dependente: tenta controlar os passos dela, assume a responsabilidade e deixa de cuidar de si.</p>
+                    </details>
+
+                    <details>
+                        <summary>As reuniões de AA e NA são pagas ou religiosas?</summary>
+                        <p>Não. São gratuitas e nao sao ligadas a relegião ou partido. O unico requisito e o desejo de parar de consumir.</p>
+                    </details>
+                </div>
+
+                <div id="contato" class="cartao">
+                    <h3>Mensagem confidencial</h3>
+                    <p class="secao__subtitulo">Conte como podemos te ajudar, responderemos com descrição.</p>
+                    <form action="form-contato" class="formulario">
+                        <labe>Como prefere se chamado?
+                            <input type="text" name="nome" required maxlength="80" placeholder="Nome ou Apelido">
+                        </label>
+
+                        <label>email para resposta
+                            <input type="email" name="email" required maxlength="120" placeholder="seuemail@exemplo.com">
+                        </label>
+
+                        <label>Como podemos ajudar?
+                            <textarea name="mensagem" rows="4" required maxlength="1000"></textarea>
+                        </label>
+
+                        <button type="submit" class="botao">Enviar mensagem</button>
+                        <p class="status" role="status" id="contato-status"></p>
+                    </form>
                 </div>
             </div>
         </section>
