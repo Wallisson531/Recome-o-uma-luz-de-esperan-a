@@ -19,7 +19,6 @@
   --sombra: 0 1px 3px rgba(15, 23, 42, 0.12);
   --largura: 1120px;
 }
-<<<<<<< Updated upstream
  
 /* 2) BASE */
 *, *::before, *::after { box-sizing: border-box; }
@@ -42,63 +41,12 @@ p { margin: 0 0 1rem; }
 a { color: var(--primaria); }
 img { max-width: 100%; }
  
-=======
-
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding: 5rem;
-}
-
-body {
-    margin: 0px;
-    font-family: "Inter", system-ui, sans-serif;
-    line-height: 1.6;
-    color: var(--texto);
-    background-color: var(--fundo);
-}
-
-h1, h2, h3, h4 {
-    line-height: 1.2;
-    margin: 0 0 0.5rem;
-}
-
-h1 {
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 800;
-}
-
-h2 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-}
-
-h3 {
-    font-size: clamp(1.15rem);
-}
-
-p {
-    margin: 0 0 1rem;
-}
-
-a {
-    color: var(--primaria);
-}
-
-img {
-    max-width: 100%;
-}¨
-
->>>>>>> Stashed changes
 :focus-visible { outline: 3px solid var(--primaria); outline-offset: 2px; }
  
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
-<<<<<<< Updated upstream
  
 .container { width: min(100% - 2rem, var(--largura)); margin-inline: auto; }
 .container--estreito { width: min(100% - 2rem, 760px); }
@@ -125,14 +73,48 @@ img {
     opacity: 0.6;
     cursor: not-allowed;
 }
-=======
 
-.container {
-    width: min(100% - 2rem, var(--largura));
-    margin-inline: auto;
+.botao--secundario { 
+    background: transparent; 
+    color: var(--primaria); 
+}
+.botao--secundario:hover { 
+    background: var(--primaria-clara); 
+    border-color: var(--primaria); 
 }
 
-.container--estreito {
-    width: min(100% - 2rem, 760px);
+.botao--perigo { 
+    background: var(--perigo); 
+    border-color: var(--perigo); 
 }
->>>>>>> Stashed changes
+
+.botao--perigo:hover { 
+    background: #b91c1c; 
+    border-color: #b91c1c; 
+}
+
+.botao--pequeno { 
+    padding: 0.3rem 0.8rem; 
+    font-size: 0.85rem; 
+}
+
+.grid {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.grid--2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid--3 {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.cartao {
+    background-color: var(--superficie);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    padding: 1.25rem;
+    box-shadow: var(--sombra)
+}
