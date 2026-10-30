@@ -1,232 +1,278 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recomeço — Uma Luz de Esperança</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recomeço — Apoio à Recuperação e Orientação Familiar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!--BARRA DE ACESSIBILIDADE-->
-    <div class="barra-top">
-        <div class="container barra-top__conteudo">
-            <button class="botao botao--perigo botao--pequeno" data-abrir="modal-emergencia" ajuda urgente 24h></button>
-            <div class="barra-top__ferramentas">
-                <button class="botao-barra" id="fonte-menor" aria-label="Diminuir fonte">A</button>
-                <button class="botao-barra" id="fonte-normal" aria-label="Tamanho normal da fonte">A</button>
-                <button class="botao-barra" id="fonte-maior" aria-label="Aumentar fonte">A+</button>
-                <button class="botao-barra" id="alto-contraste" aria-pressed="false">Alto contraste</button>
-            </div>
-        </div>
+
+  <!-- BARRA DE ACESSIBILIDADE -->
+  <div class="barra-topo">
+    <div class="container barra-topo__conteudo">
+      <button class="botao botao--perigo botao--pequeno" data-abrir="modal-emergencia">Ajuda urgente 24h</button>
+      <div class="barra-topo__ferramentas">
+        <button class="botao-barra" id="fonte-menor" aria-label="Diminuir fonte">A-</button>
+        <button class="botao-barra" id="fonte-normal" aria-label="Tamanho normal da fonte">A</button>
+        <button class="botao-barra" id="fonte-maior" aria-label="Aumentar fonte">A+</button>
+        <button class="botao-barra" id="alto-contraste" aria-pressed="false">Alto contraste</button>
+      </div>
     </div>
+  </div>
 
-    <!--CABEÇALHO-->
-    <header class="cabecalho">
-        <div class="container cabecalho__conteudo">
-            <a href="#inicio" class="logo">
-                <span class="logo">Recomeço</span>
-                <span class="logo__legenda">Apoio e Recuperação</span>
-            </a>
-            <button class="menu-botao" id="menu-botao" aria-expanded="false" aria-controls="menu">Menu</button>
-            <nav class="menu" id="menu" aria-label="Navegação Principal">
-                <a href="#inicio">Inicio</a>
-                <a href="#locais">Locais</a>
-                <a href="#autoavaliacao">Autoavaliação</a>
-                <a href="#familias">Para familias</a>
-                <a href="#grupos">Grupos</a>
-                <a href="#historias">Historias</a>
-                <a href="#faq">Duvidas</a>
-            </nav>
+  <!-- CABEÇALHO -->
+  <header class="cabecalho">
+    <div class="container cabecalho__conteudo">
+      <a href="#inicio" class="logo">
+        <span class="logo__nome">Recomeço</span>
+        <span class="logo__legenda">Apoio e recuperação</span>
+      </a>
+      <button class="menu-botao" id="menu-botao" aria-expanded="false" aria-controls="menu">Menu</button>
+      <nav class="menu" id="menu" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#locais">Locais de apoio</a>
+        <a href="#autoavaliacao">Autoavaliação</a>
+        <a href="#familias">Para famílias</a>
+        <a href="#grupos">Grupos</a>
+        <a href="#historias">Histórias</a>
+        <a href="#faq">Dúvidas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- INÍCIO -->
+    <section id="inicio" class="hero">
+      <div class="container">
+        <h1>Você não está sozinho.<br>Existe um caminho de recomeço.</h1>
+        <p class="hero__texto">Acolhimento, grupos de apoio e orientação para quem quer sair da dependência e para as famílias que precisam de ajuda.</p>
+
+        <p class="hero__pergunta">Como podemos ajudar hoje?</p>
+        <div class="grid grid--3">
+          <a href="#autoavaliacao" class="cartao cartao--link">
+            <h3>Preciso de ajuda para mim</h3>
+            <p>Entender meu momento, buscar tratamento ou conversar com quem entende.</p>
+          </a>
+          <a href="#familias" class="cartao cartao--link">
+            <h3>Quero ajudar um familiar ou amigo</h3>
+            <p>Orientação prática para lidar com a dependência sem perder seus limites.</p>
+          </a>
+          <a href="#historias" class="cartao cartao--link">
+            <h3>Quero apoiar ou compartilhar</h3>
+            <p>Conte sua experiência e inspire quem está começando agora.</p>
+          </a>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main>
-        <section id="inicio" class="hero">
-            <div class="container">
-                <h1>Voce não está sozinho. <br>Existe um caminho de recomeço.</h1>
-                <p class="hero__texto">Acolhimento, grupos de apoio e orientações par quem quer sair da dependência e para as familias que precisam de ajuda.</p>
+    <!-- LOCAIS DE APOIO (dados vêm do Supabase) -->
+    <section id="locais" class="secao">
+      <div class="container">
+        <h2>Encontre clínicas e centros de apoio</h2>
+        <p class="secao__subtitulo">Pesquise por estado, cidade ou nome.</p>
 
-                <p class="hero__pergunta">Como podemos ajuda?</p>
-                <div class="grid grid--3">
-                    <a href="#autoavaliacao" class="cartao cartao--link">
-                        <h3>Preciso de ajuda para mim</h3>
-                        <p>entender meu momento, buscar tratamento ou conversar com quem entende</p>
-                    </a>
+        <div class="filtros">
+          <label>Estado
+            <select id="filtro-estado"><option value="">Todos</option></select>
+          </label>
+          <label>Cidade
+            <select id="filtro-cidade"><option value="">Todas</option></select>
+          </label>
+          <label>Busca
+            <input type="search" id="filtro-busca" placeholder="Nome da clínica...">
+          </label>
+        </div>
 
-                    <a href="#familias" class="cartao cartao--link">
-                        <h3>Quero ajudar um familiar ou amigo</h3>
-                        <p>Orientação pratica para lidar com a dependência sem perder seus limites.</p>
-                    </a>
+        <p id="clinicas-status" class="status" role="status"></p>
+        <div id="clinicas-lista" class="grid grid--3"></div>
+      </div>
+    </section>
 
-                    <a href="#historias" class="cartao cartao--link">
-                        <h3>Quero apoiar ou compartilhar</h3>
-                        <p>Conte sua experiencia e inspire quem está começando agora.</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-        
-        <!--LOCAIS DE APOIO (VOU TRAZER OS DADOS DO SUPABASE)-->
-        <section id="locais" class="secao">
-            <div class="container">
-                <h2>Encontre clinicas e centro de apoio</h2>
-                <p class="secao__subtitulo">Pesquise por Cidade, Estado ou Nome</p>
+    <!-- AUTOAVALIAÇÃO -->
+    <section id="autoavaliacao" class="secao secao--alt">
+      <div class="container container--estreito">
+        <h2>Autoavaliação anônima</h2>
+        <p class="secao__subtitulo">Quatro perguntas rápidas para refletir sobre o seu momento. Nada é enviado ou salvo.</p>
 
-                <div class="filtros">
-                    <label>Estados
-                        <select id="filtro-estado"><option value="">Todos</option></select>
-                    </label>
-
-                    <label>Cidade
-                        <select id="filtro-cidade"><option value="">Todas</option></select>
-                    </label>
-
-                    <label>Buscar
-                        <input type"search" id="filtro-busca" placeholder="Nome da clinica">
-                    </label>
-                </div>
-
-                <p  id="clinicas-status" class="status" role="status"></p>
-                <div id="clinicas-lista" class="grid grid--3"></div>
-            </div>
-        </section>
-
-        <!--AUTOAVALIACAO-->
-        <section id="autoavaliacao" class="secao secao--alt">
-            <div class="container container--estreito">
-                <h2>Autoavaliação anônima</h2>
-                <p class="secao__subtitulo">Quatro perguntas rápidas para refletir sobre o seu momento. Nada é enviado ou salvo.</p>
- 
-            <div class="cartao quiz">
-             <div class="quiz__progresso" aria-hidden="true"><div id="quiz-barra"></div></div>
-             <p id="quiz-etapa" class="quiz__etapa"></p>
-            <div id="quiz-corpo"></div>
-            <div class="quiz__botoes">
+        <div class="cartao quiz">
+          <div class="quiz__progresso" aria-hidden="true"><div id="quiz-barra"></div></div>
+          <p id="quiz-etapa" class="quiz__etapa"></p>
+          <div id="quiz-corpo"></div>
+          <div class="quiz__botoes">
             <button class="botao botao--secundario" id="quiz-anterior" hidden>Anterior</button>
             <button class="botao" id="quiz-proximo">Próxima</button>
-                </div>
-                     <p class="aviso">Este questionário não é um diagnóstico. Só um profissional de saúde pode avaliar o seu caso.</p>
-                </div>
-                </div>
-        </section>
+          </div>
+          <p class="aviso">Este questionário não é um diagnóstico. Só um profissional de saúde pode avaliar o seu caso.</p>
+        </div>
+      </div>
+    </section>
 
-        <!-- FAMÍLIAS -->
-        <section id="familias" class="secao">
-            <div class="container">
-                <h2>Para quem convive com a dependência</h2>
-                <p class="secao__subtitulo">Cuidar de você é o primeiro passo para ajudar quem você ama.</p>
-        
-                <div class="grid grid--2">
-                <div class="cartao cartao--sim">
-                    <h3>O que fazer</h3>
-                    <ul>
-                    <li><strong>Defina limites claros:</strong> diga o que é aceitável na sua casa.</li>
-                    <li><strong>Busque apoio para você:</strong> grupos como Al-Anon e Amor-Exigente ajudam mesmo que a pessoa não aceite tratamento.</li>
-                    <li><strong>Incentive a responsabilidade:</strong> deixe a pessoa arcar com as consequências dos próprios atos.</li>
-                    <li><strong>Converse com calma:</strong> fale sobre tratamento quando a pessoa estiver sóbria.</li>
-                    </ul>
-                </div>
-                <div class="cartao cartao--nao">
-                    <h3>O que evitar</h3>
-                    <ul>
-                    <li><strong>Cobrir mentiras:</strong> não invente desculpas nem pague dívidas causadas pelo uso.</li>
-                    <li><strong>Discutir durante a crise:</strong> argumentar com alguém sob efeito de substâncias aumenta a agressividade.</li>
-                    <li><strong>Assumir a culpa:</strong> a dependência não é culpa de quem convive com ela.</li>
-                    <li><strong>Abandonar a própria vida:</strong> mantenha sua saúde, seu trabalho e seus hobbies.</li>
-                    </ul>
-                </div>
-                </div>
-            </div>
-        </section>
+    <!-- FAMÍLIAS -->
+    <section id="familias" class="secao">
+      <div class="container">
+        <h2>Para quem convive com a dependência</h2>
+        <p class="secao__subtitulo">Cuidar de você é o primeiro passo para ajudar quem você ama.</p>
 
-        <!--GRUPOS-->
-        <section id="grupos" class="secao secao--alt">
-            <div class="container">
-                <h2>Agende de reuniões</h2>
-                <p class="secao__subtitulo">Grupos de mutua ajuda, online e presenciais.</p>
+        <div class="grid grid--2">
+          <div class="cartao cartao--sim">
+            <h3>O que fazer</h3>
+            <ul>
+              <li><strong>Defina limites claros:</strong> diga o que é aceitável na sua casa.</li>
+              <li><strong>Busque apoio para você:</strong> grupos como Al-Anon e Amor-Exigente ajudam mesmo que a pessoa não aceite tratamento.</li>
+              <li><strong>Incentive a responsabilidade:</strong> deixe a pessoa arcar com as consequências dos próprios atos.</li>
+              <li><strong>Converse com calma:</strong> fale sobre tratamento quando a pessoa estiver sóbria.</li>
+            </ul>
+          </div>
+          <div class="cartao cartao--nao">
+            <h3>O que evitar</h3>
+            <ul>
+              <li><strong>Cobrir mentiras:</strong> não invente desculpas nem pague dívidas causadas pelo uso.</li>
+              <li><strong>Discutir durante a crise:</strong> argumentar com alguém sob efeito de substâncias aumenta a agressividade.</li>
+              <li><strong>Assumir a culpa:</strong> a dependência não é culpa de quem convive com ela.</li>
+              <li><strong>Abandonar a própria vida:</strong> mantenha sua saúde, seu trabalho e seus hobbies.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                <div class="abas" role="group" aria-label="Filtrar reuniões">
-                    <button class="aba ativa" data-filtro="todas">Todas</button>
-                    <button class="aba" data-filtro="online">Online</button>
-                    <button class="aba" data-filtro="presencial">Presencial</button>
-                </div>
+    <!-- GRUPOS -->
+    <section id="grupos" class="secao secao--alt">
+      <div class="container">
+        <h2>Agenda de reuniões</h2>
+        <p class="secao__subtitulo">Grupos de mútua ajuda, online e presenciais.</p>
 
-                <div>
-                    <div id="reuniao-lista" class="grid grid--3"></div>
-                </div>
-            </div>
-        </section>
+        <div class="abas" role="group" aria-label="Filtrar reuniões">
+          <button class="aba ativa" data-filtro="todas">Todas</button>
+          <button class="aba" data-filtro="online">Online</button>
+          <button class="aba" data-filtro="presencial">Presencial</button>
+        </div>
+        <div id="reunioes-lista" class="grid grid--3"></div>
+      </div>
+    </section>
 
-        <!--Historias (Vou trazer os dados do Banco de dados(SupaBase)-->
-        <section id="historias" class="secao">
-            <div class="container">
-                <div class="secao__topo">
-                    <div>
-                        <h2>Depoimentos de superação</h2>
-                        <p class="secao__subtitulo" id="historias-aviso">Relatos de pessoas que recontruiram a vida.
-                        </p>
-                    </div>
+    <!-- HISTÓRIAS (dados vêm do Supabase) -->
+    <section id="historias" class="secao">
+      <div class="container">
+        <div class="secao__topo">
+          <div>
+            <h2>Depoimentos de superação</h2>
+            <p class="secao__subtitulo" id="historias-aviso">Relatos de pessoas que reconstruíram a vida.</p>
+          </div>
+          <button class="botao" data-abrir="modal-historia">Compartilhar minha história</button>
+        </div>
+        <div id="historias-lista" class="grid grid--3"></div>
+      </div>
+    </section>
 
-                    <button class="botao" data-abrir="modal-historia">
-                        Compartilhar a minha historia
-                    </button>
-                    <div id="historias-lista" class="grid grid--3"></div>
-                </div>
-            </div>
-        </section>
+    <!-- FAQ + CONTATO -->
+    <section id="faq" class="secao secao--alt">
+      <div class="container grid grid--faq">
+        <div>
+          <h2>Perguntas frequentes</h2>
+          <details>
+            <summary>Como sei se preciso de tratamento profissional?</summary>
+            <p>Quando o consumo interfere na sua saúde, nos relacionamentos ou no trabalho, ou quando você tenta parar e não consegue sozinho, é hora de buscar orientação no CAPS ou em grupos de apoio.</p>
+          </details>
+          <details>
+            <summary>O atendimento no CAPS é gratuito? Preciso de encaminhamento?</summary>
+            <p>O CAPS AD é um serviço gratuito do SUS e, em geral, aceita atendimento direto. Leve um documento com foto e, se possível, um comprovante de residência. Confirme as regras na unidade mais próxima.</p>
+          </details>
+          <details>
+            <summary>O que é codependência?</summary>
+            <p>É quando o familiar passa a viver em função da pessoa dependente: tenta controlar os passos dela, assume suas responsabilidades e deixa de cuidar de si.</p>
+          </details>
+          <details>
+            <summary>As reuniões de AA e NA são pagas ou religiosas?</summary>
+            <p>Não. São gratuitas e não ligadas a religião ou partido. O único requisito é o desejo de parar de consumir.</p>
+          </details>
+        </div>
 
-        <!--FAQ-->
-        <section id="faq" class="secao secao--alt">
-            <div class="container grid grid--faq">
-                <div>
-                    <h2>Perguntas Frequentes</h2>
-                    <details>
-                        <summary>Como sei se preciso de tratamento profissional?</summary>
-                        <p>Quando o consumo interfere na sua saúdel, nos relecionametos ou no trabalho, ou quando voce tenta parar e não consegue sozinho, é hora de buscar orientação no CAPS ou em grupos de apoio.</p>
-                    </details>
+        <div id="contato" class="cartao">
+          <h3>Mensagem confidencial</h3>
+          <p class="secao__subtitulo">Conte como podemos ajudar. Responderemos com discrição.</p>
+          <form id="form-contato" class="formulario">
+            <label>Como prefere ser chamado?
+              <input type="text" name="nome" required maxlength="80" placeholder="Nome ou apelido">
+            </label>
+            <label>E-mail para resposta
+              <input type="email" name="email" required maxlength="120" placeholder="seuemail@exemplo.com">
+            </label>
+            <label>Como podemos apoiar?
+              <textarea name="mensagem" rows="4" required maxlength="1000"></textarea>
+            </label>
+            <button type="submit" class="botao">Enviar mensagem</button>
+            <p class="status" role="status" id="contato-status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 
-                    <details>
-                        <summary>O atendimento no CAPS e gratuito? Preciso de encaminhamento?</summary>
-                        <p>O CAPS AD é um serviço gratuito do SUS e, em geral, aceita atendimento direto. Leve um documento com foto, e se possivel um comprovante de residencia. Confirme as regras nas unidades proximas.</p>
-                    </details>
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <div class="container">
+      <div class="grid grid--3">
+        <div>
+          <h4>Recomeço</h4>
+          <p>Plataforma comunitária de orientação e apoio à recuperação da dependência química e ao suporte familiar.</p>
+        </div>
+        <div>
+          <h4>Telefones 24h</h4>
+          <ul>
+            <li>CVV (apoio emocional): <a href="tel:188">188</a></li>
+            <li>SAMU (emergência): <a href="tel:192">192</a></li>
+            <li>Disque Saúde: <a href="tel:136">136</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Privacidade</h4>
+          <p>A navegação e a autoavaliação não salvam dados. Só guardamos o que você enviar de forma voluntária nos formulários.</p>
+        </div>
+      </div>
+      <p class="rodape__aviso">© 2026 Recomeço. Conteúdo informativo. Em risco de vida, ligue para o SAMU (192) ou CVV (188).</p>
+    </div>
+  </footer>
 
-                    <details>
-                        <summary>O que e coodependencia?</summary>
-                        <p>E quando o familiar passa a viver a função da pessoa dependente: tenta controlar os passos dela, assume a responsabilidade e deixa de cuidar de si.</p>
-                    </details>
+  <!-- MODAL: EMERGÊNCIA -->
+  <dialog id="modal-emergencia" class="modal">
+    <h3>Ajuda imediata 24h</h3>
+    <p>Se você ou alguém está em perigo, ligue agora. As ligações são gratuitas.</p>
+    <a class="telefone" href="tel:188"><strong>188</strong> CVV — apoio emocional e prevenção do suicídio</a>
+    <a class="telefone" href="tel:192"><strong>192</strong> SAMU — overdose, abstinência grave ou surto</a>
+    <a class="telefone" href="tel:136"><strong>136</strong> Disque Saúde — informações sobre CAPS</a>
+    <button class="botao botao--secundario" data-fechar>Fechar</button>
+  </dialog>
 
-                    <details>
-                        <summary>As reuniões de AA e NA são pagas ou religiosas?</summary>
-                        <p>Não. São gratuitas e nao sao ligadas a relegião ou partido. O unico requisito e o desejo de parar de consumir.</p>
-                    </details>
-                </div>
+  <!-- MODAL: COMPARTILHAR HISTÓRIA -->
+  <dialog id="modal-historia" class="modal">
+    <h3>Compartilhe sua história</h3>
+    <p>Seu relato passa por revisão antes de aparecer no site.</p>
+    <form id="form-historia" class="formulario">
+      <label>Nome ou codinome
+        <input type="text" name="autor" required maxlength="60" placeholder="Ex.: Roberto S. ou Anônimo">
+      </label>
+      <label>Tempo de superação
+        <input type="text" name="tempo" maxlength="60" placeholder="Ex.: 2 anos de sobriedade">
+      </label>
+      <label>Sua mensagem
+        <textarea name="texto" rows="4" required maxlength="600"></textarea>
+      </label>
+      <div class="modal__botoes">
+        <button type="button" class="botao botao--secundario" data-fechar>Cancelar</button>
+        <button type="submit" class="botao">Enviar para revisão</button>
+      </div>
+      <p class="status" role="status" id="historia-status"></p>
+    </form>
+  </dialog>
 
-                <div id="contato" class="cartao">
-                    <h3>Mensagem confidencial</h3>
-                    <p class="secao__subtitulo">Conte como podemos te ajudar, responderemos com descrição.</p>
-                    <form action="form-contato" class="formulario">
-                        <labe>Como prefere se chamado?
-                            <input type="text" name="nome" required maxlength="80" placeholder="Nome ou Apelido">
-                        </label>
-
-                        <label>email para resposta
-                            <input type="email" name="email" required maxlength="120" placeholder="seuemail@exemplo.com">
-                        </label>
-
-                        <label>Como podemos ajudar?
-                            <textarea name="mensagem" rows="4" required maxlength="1000"></textarea>
-                        </label>
-
-                        <button type="submit" class="botao">Enviar mensagem</button>
-                        <p class="status" role="status" id="contato-status"></p>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-    </main>
+  <!-- ORDEM IMPORTANTE: biblioteca do Supabase → nosso supabase.js → app.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
