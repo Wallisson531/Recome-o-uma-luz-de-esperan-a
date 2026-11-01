@@ -191,4 +191,236 @@ input, select, textarea {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.barra-topo__ferramentas {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.botao-barra {
+    padding: 0.25rem 0.6rem;
+    border: 1px solid #475569;
+    border-radius: 6px;
+    background: #1e293b;
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+}
+
+.botao-barra:hover, .botao-barra[aria-pressed="true"] {
+    background: #334155;
+}
+
+.cabecalho {
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid var(--borda)
+}
+
+.cabecalho__conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 4.5rem;
+}
+
+.logo {
+    text-decoration: none;
+    display: grid;
+}
+
+.logo__nome {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--primaria-escura);
+    line-height: 1.1;
+}
+
+.logo__legenda {
+    font-size: 0.75rem;
+    color: var(--texto-suave);
+
+}
+
+.menu {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--texto-suave);
+    font-weight: 800;
+    font-size: 0.9rem
+}
+
+.menu a:hover {
+    color: var(--primaria);
+}
+
+.menu-botao {
+    display: none;
+}
+
+.hero {
+    padding: 4rem 0;
+    background: linear-gradient(var(--primaria-clara), var(--fundo));
+    text-align: center;
+}
+
+.hero h1 {
+    color: var(--primaria-escura);
+}
+
+.hero__texto {
+    max-width: 620px;
+    margin: 1rem auto 2.5rem;
+    color: var(--texto-suave);
+    font-size: 1.1rem;
+}
+
+.hero__pergunta {
+    font-weight: 700;
+}
+
+.hero .cartao {
+    text-align: left;
+}
+
+.secao {
+    padding: 4rem 0;
+    border-top: 1px solid var(--borda);   
+}
+
+.secao--alt {
+    background: var(--fundo-alt);
+}
+
+.secao__subtitulo {
+    color: var(--texto-suave);
+    margin-bottom: 15rem;
+}
+
+.secao__topo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.filtros {
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.clinica__local {
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+}
+
+.clinica__contatos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.clinica__contatos a {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.clinica__contatos a:hover {
+    background-color: var(--primaria-clara);
+}
+
+.quiz__progresso {
+    height: 8px;
+    border-radius: 99px;
+    background: var(--borda);
+    overflow: hidden;
+}
+
+.quiz__progresso div {
+    height: 100%;
+    width: 0;
+    background: var(--primaria);
+    transition: width 0.3s;
+}
+
+.quiz__etapa {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--texto-suave);
+    margin: 0.75rem 0;
+}
+
+.quiz fieldset { 
+    border: 0; padding: 0; margin: 0; display: grid; gap: 0.6rem; 
+}
+
+.quiz legend { 
+    font-weight: 700; font-size: 1.1rem; margin-bottom: 0.75rem; 
+}
+
+.quiz__opcao { 
+    display: flex; 
+    align-items: center; 
+    gap: 0.75rem; 
+    padding: 0.75rem; 
+    border: 1px solid var(--borda); 
+    border-radius: 10px; 
+    cursor: pointer; 
+    font-weight: 500; 
+}
+
+.quiz__opcao:hover { 
+    background: var(--fundo); 
+}
+
+.quiz__opcao input { 
+    width: auto; 
+}
+
+.quiz__botoes { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: 1.5rem; 
+}
+
+.quiz__resultado ul { 
+    padding-left: 1.2rem;
+}
+
+.cartao--sim {
+    background: var(--esperanca-clara);
+    border-color: #86efac;
+
+}
+
+.cartao--nao {
+    background: var(--perigo-clara);
+    border-color: #fca5a5;
+}
+
+.cartao--sim li, .cartao--nao li {
+    margin-bottom: 0.6rem;
+    color: #1e293b;
+}
+
+.cartao--sim h3, .cartao--nao h3 {
+    color: #1e293b;
 }
