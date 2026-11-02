@@ -140,21 +140,6 @@
       </div>
     </section>
 
-    <!-- GRUPOS -->
-    <section id="grupos" class="secao secao--alt">
-      <div class="container">
-        <h2>Agenda de reuniões</h2>
-        <p class="secao__subtitulo">Grupos de mútua ajuda, online e presenciais.</p>
-
-        <div class="abas" role="group" aria-label="Filtrar reuniões">
-          <button class="aba ativa" data-filtro="todas">Todas</button>
-          <button class="aba" data-filtro="online">Online</button>
-          <button class="aba" data-filtro="presencial">Presencial</button>
-        </div>
-        <div id="reunioes-lista" class="grid grid--3"></div>
-      </div>
-    </section>
-
     <!-- HISTÓRIAS (dados vêm do Supabase) -->
     <section id="historias" class="secao">
       <div class="container">
@@ -197,10 +182,10 @@
           <p class="secao__subtitulo">Conte como podemos ajudar. Responderemos com discrição.</p>
           <form id="form-contato" class="formulario">
             <label>Como prefere ser chamado?
-              <input type="text" name="nome" required maxlength="80" placeholder="Nome ou apelido" autocomplete="off">
+              <input type="text" name="nome" required maxlength="80" placeholder="Nome ou apelido">
             </label>
             <label>E-mail para resposta
-              <input type="email" name="email" required maxlength="120" placeholder="seuemail@exemplo.com" autocomplete="off">
+              <input type="email" name="email" required maxlength="120" placeholder="seuemail@exemplo.com">
             </label>
             <label>Como podemos apoiar?
               <textarea name="mensagem" rows="4" required maxlength="1000"></textarea>
@@ -216,7 +201,7 @@
   <!-- RODAPÉ -->
   <footer class="rodape">
     <div class="container">
-      <div class="grid grid--3"> 
+      <div class="grid grid--3">
         <div>
           <h4>Recomeço</h4>
           <p>Plataforma comunitária de orientação e apoio à recuperação da dependência química e ao suporte familiar.</p>

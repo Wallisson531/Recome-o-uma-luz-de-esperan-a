@@ -424,3 +424,155 @@ input, select, textarea {
 .cartao--sim h3, .cartao--nao h3 {
     color: #1e293b;
 }
+
+/*Depoimentos*/
+
+.depoimento {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.depoimento blockquote {
+    margin: 0;
+    font-style: italic;
+}
+
+.depoimento__autor {
+    font-weight: 700;
+    margin: 0;
+}
+
+.dedpoimento__tempo {
+    font-size: 0.85rem;
+    color: var(--primaria);
+}
+
+/*FAQ*/
+
+.grip--faq {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: start;
+    gap: 3rem;
+}
+
+datails {
+    background: var(--superficie);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    margin-bottom: 0.75rem;
+}
+
+summary {
+    padding: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+details p {
+    padding: 0 1rem;
+    color: var(--texto-suave);
+}
+
+.rodape {
+    background-color: #0f172a;
+    color: #cbd5e1;
+    padding: 3rem 0 2rem;
+    font-size: 0.9rem;
+}
+
+.rodape h4 {
+    color: #fff;
+}
+
+.rodape a {
+    color: #fff;
+}
+
+.rodape ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rodape__aviso {
+    margin: 2rem 0 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid #334155;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+/* 5) MODAIS (elemento <dialog> nativo) */
+.modal { 
+    width: min(92vw, 480px); 
+    padding: 1.5rem; 
+    border: 0; 
+    border-radius: var(--raio); 
+    background: var(--superficie); 
+    color: var(--texto); 
+}
+
+.modal::backdrop { 
+    background: rgba(15, 23, 42, 0.75); 
+}
+
+.modal .botao { 
+    margin-top: 1rem; 
+}
+
+.modal__botoes { 
+    display: flex; 
+    gap: 0.5rem; 
+    justify-content: flex-end; 
+}
+
+.telefone { 
+    display: flex; 
+    align-items: center; 
+    gap: 0.75rem; 
+    margin-top: 0.75rem; 
+    padding: 0.9rem; 
+    border: 1px solid #fca5a5; 
+    border-radius: 10px; 
+    background: var(--perigo-clara); 
+    color: #1e293b; 
+    text-decoration: none; 
+}
+
+.telefone strong { 
+    font-size: 1.3rem; 
+    color: var(--perigo);
+}
+
+html[data-contraste="alto"] {
+  --primaria: #ffff00;
+  --primaria-escura: #ffff00;
+  --primaria-clara: #1a1a1a;
+  --esperanca-clara: #1a1a1a;
+  --perigo-clara: #1a1a1a;
+  --fundo: #000;
+  --fundo-alt: #0a0a0a;
+  --superficie: #000;
+  --texto: #fff;
+  --texto-suave: #e5e5e5;
+  --borda: #ffff00;
+  --texto-botao: #000;
+}
+
+html[data-contraste="alto"] .cabecalho { background: #000; }
+html[data-contraste="alto"] .hero { background: #000; }
+html[data-contraste="alto"] .cartao--sim li, html[data-contraste="alto"] .cartao--nao li,
+html[data-contraste="alto"] .cartao--sim h3, html[data-contraste="alto"] .cartao--nao h3,
+html[data-contraste="alto"] .telefone { color: #fff; }
+html[data-contraste="alto"] input, html[data-contraste="alto"] select, html[data-contraste="alto"] textarea { border-color: #ffff00; }
+
+
+@media (max-width: 900px) {
+  .grid--faq { grid-template-columns: 1fr; gap: 2rem; }
+  .menu-botao { display: block; padding: 0.5rem 1rem; border: 1px solid var(--borda); border-radius: 8px; background: var(--superficie); color: var(--texto); font: inherit; font-weight: 600; cursor: pointer; }
+  .menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; padding: 0.5rem 1rem 1rem; background: var(--superficie); border-bottom: 1px solid var(--borda); }
+  .menu.aberto { display: flex; }
+  .menu a { padding: 0.6rem 0; }
+}
