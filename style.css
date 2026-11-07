@@ -51,6 +51,8 @@ img { max-width: 100%; }
 .container { width: min(100% - 2rem, var(--largura)); margin-inline: auto; }
 .container--estreito { width: min(100% - 2rem, 760px); }
 
+/*Seção de todos os botao existentes no projeto*/
+
 .botao {
     display: inline-block;
     padding: 0.7rem 1.2rem;
@@ -561,12 +563,25 @@ html[data-contraste="alto"] {
   --texto-botao: #000;
 }
 
-html[data-contraste="alto"] .cabecalho { background: #000; }
-html[data-contraste="alto"] .hero { background: #000; }
+html[data-contraste="alto"] .cabecalho { 
+    background: #000; 
+}
+
+html[data-contraste="alto"] .hero { 
+    background: #000; 
+}
+
 html[data-contraste="alto"] .cartao--sim li, html[data-contraste="alto"] .cartao--nao li,
+
 html[data-contraste="alto"] .cartao--sim h3, html[data-contraste="alto"] .cartao--nao h3,
-html[data-contraste="alto"] .telefone { color: #fff; }
-html[data-contraste="alto"] input, html[data-contraste="alto"] select, html[data-contraste="alto"] textarea { border-color: #ffff00; }
+
+html[data-contraste="alto"] .telefone { 
+    color: #fff; 
+}
+
+html[data-contraste="alto"] input, html[data-contraste="alto"] select, html[data-contraste="alto"] textarea { 
+    border-color: #ffff00; 
+}
 
 
 @media (max-width: 900px) {
