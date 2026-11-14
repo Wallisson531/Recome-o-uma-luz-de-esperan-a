@@ -6,7 +6,7 @@
   <title>Recomeço — Apoio à Recuperação e Orientação Familiar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -37,7 +37,6 @@
         <a href="#locais">Locais de apoio</a>
         <a href="#autoavaliacao">Autoavaliação</a>
         <a href="#familias">Para famílias</a>
-        <a href="#grupos">Grupos</a>
         <a href="#historias">Histórias</a>
         <a href="#faq">Dúvidas</a>
       </nav>
@@ -48,8 +47,14 @@
     <!-- INÍCIO -->
     <section id="inicio" class="hero">
       <div class="container">
+        <span class="selo">Espaço seguro e confidencial</span>
         <h1>Você não está sozinho.<br>Existe um caminho de recomeço.</h1>
         <p class="hero__texto">Acolhimento, grupos de apoio e orientação para quem quer sair da dependência e para as famílias que precisam de ajuda.</p>
+
+        <div class="hero__acoes">
+          <a href="#autoavaliacao" class="botao">Fazer autoavaliação</a>
+          <a href="#locais" class="botao botao--secundario">Encontrar clínicas</a>
+        </div>
 
         <p class="hero__pergunta">Como podemos ajudar hoje?</p>
         <div class="grid grid--3">
@@ -72,6 +77,7 @@
     <!-- LOCAIS DE APOIO (dados vêm do Supabase) -->
     <section id="locais" class="secao">
       <div class="container">
+        <p class="eyebrow">Rede de acolhimento</p>
         <h2>Encontre clínicas e centros de apoio</h2>
         <p class="secao__subtitulo">Pesquise por estado, cidade ou nome.</p>
 
@@ -95,6 +101,7 @@
     <!-- AUTOAVALIAÇÃO -->
     <section id="autoavaliacao" class="secao secao--alt">
       <div class="container container--estreito">
+        <p class="eyebrow">Reflexão sem julgamentos</p>
         <h2>Autoavaliação anônima</h2>
         <p class="secao__subtitulo">Quatro perguntas rápidas para refletir sobre o seu momento. Nada é enviado ou salvo.</p>
 
@@ -114,6 +121,7 @@
     <!-- FAMÍLIAS -->
     <section id="familias" class="secao">
       <div class="container">
+        <p class="eyebrow">Apoio familiar</p>
         <h2>Para quem convive com a dependência</h2>
         <p class="secao__subtitulo">Cuidar de você é o primeiro passo para ajudar quem você ama.</p>
 
@@ -141,11 +149,12 @@
     </section>
 
     <!-- HISTÓRIAS (dados vêm do Supabase) -->
-    <section id="historias" class="secao">
+    <section id="historias" class="secao secao--alt">
       <div class="container">
         <div class="secao__topo">
           <div>
-            <h2>Depoimentos de superação</h2>
+            <p class="eyebrow">Esperança viva</p>
+        <h2>Depoimentos de superação</h2>
             <p class="secao__subtitulo" id="historias-aviso">Relatos de pessoas que reconstruíram a vida.</p>
           </div>
           <button class="botao" data-abrir="modal-historia">Compartilhar minha história</button>
@@ -155,10 +164,11 @@
     </section>
 
     <!-- FAQ + CONTATO -->
-    <section id="faq" class="secao secao--alt">
+    <section id="faq" class="secao">
       <div class="container grid grid--faq">
         <div>
-          <h2>Perguntas frequentes</h2>
+          <p class="eyebrow">Tire suas dúvidas</p>
+        <h2>Perguntas frequentes</h2>
           <details>
             <summary>Como sei se preciso de tratamento profissional?</summary>
             <p>Quando o consumo interfere na sua saúde, nos relacionamentos ou no trabalho, ou quando você tenta parar e não consegue sozinho, é hora de buscar orientação no CAPS ou em grupos de apoio.</p>
@@ -223,6 +233,8 @@
     </div>
   </footer>
 
+  <button class="botao botao--perigo flutuante" data-abrir="modal-emergencia">Ajuda 24h</button>
+
   <!-- MODAL: EMERGÊNCIA -->
   <dialog id="modal-emergencia" class="modal">
     <h3>Ajuda imediata 24h</h3>
@@ -255,7 +267,7 @@
     </form>
   </dialog>
 
-  <!-- ORDEM IMPORTANTE: biblioteca do Supabase → nosso supabase.js → app.js -->
+  <!-- ORDEM biblioteca do Supabase → nosso supabase.js → app.js -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
   <script src="js/supabase.js"></script>
   <script src="js/app.js"></script>
